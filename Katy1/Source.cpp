@@ -91,8 +91,8 @@ int main()
 		case ListType::ByYear:
 			std::cout << "¬ведите год:";
 			wishYear = CheckIntValue();
-			listType = "”ниги изданные после " + std::to_string(wishYear) + " \n";
-			endList = GetListWithSpaceExceedingThen(array, count, wishSpace, endSize);
+			listType = " ниги изданные после " + std::to_string(wishYear) + " \n";
+			endList = GetListOfBooksPublisherAfterGivenYear(array, count, wishYear, endSize);
 			break;
 		}
 
