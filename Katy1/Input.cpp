@@ -8,17 +8,18 @@ Book* ConsoleInput(int count)
 	int valueYear;
 	int valueNumberOfPages;
 	Book* array = new Book[count];
-
+	std::cin.clear();
+	std::cin.ignore();
     for (int i = 0; i < count; i++)
     {
         std::cout << "Enter author(#" + std::to_string(i+1) + ")." << std::endl << "ENTER: ";
-        std::cin >> valuerAuthor;
+        std::getline(std::cin,valuerAuthor);
 
         std::cout << "Enter title(#" + std::to_string(i + 1) + ")." << std::endl;
-		std::cin >> valueTitle;
+		std::getline(std::cin, valueTitle);
 
         std::cout << "Enter publisher(#" + std::to_string(i + 1) + ")." << std::endl;
-		std::cin >> valuePublisher;
+		std::getline(std::cin, valuePublisher);
 
         std::cout << "Enter year(#" + std::to_string(i + 1) + ")." << std::endl;
 		valueYear = CheckIntValue();
