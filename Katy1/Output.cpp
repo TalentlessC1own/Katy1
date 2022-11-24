@@ -50,11 +50,11 @@ void ConsoleOutput(Book* array, std::string var, int endSize)
 	{
 		std::cout << "Book #" << i + 1 << std::endl;
 
-		std::cout << "Author is " + array[i].GetAuthor() << std::endl;
+		std::cout << "Author is " + array[i].GetAuthor() + "\n" << std::endl;
 
-		std::cout << "Title is " + array[i].GetTitle() << std::endl;
+		std::cout << "Title is " + array[i].GetTitle() + "\n" << std::endl;
 
-		std::cout << "Publisher is " + array[i].GetPublisher() << std::endl;
+		std::cout << "Publisher is " + array[i].GetPublisher() + "\n" << std::endl;
 
 		std::cout << "Year is " + std::to_string(array[i].GetYear()) + "\n" << std::endl;
 

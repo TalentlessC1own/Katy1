@@ -3,8 +3,7 @@
 std::ofstream CheckFileOutput()
 {
 
-	std::cin.clear();
-	std::cin.ignore();
+	
 	const int this_file = 1;
 	std::string name;
 	std::ofstream  FileRecorder;

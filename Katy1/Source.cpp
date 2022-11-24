@@ -49,12 +49,13 @@ int main()
 
 		case InputType::File:
 			array = FileInput();
+			std::cin.clear();
+			std::cin.ignore(30000, '\n');
 			break;
 		}
 
 		if (inputVar == InputType::Console)
 		{
-			std::cin.sync();
 			Answer initialDataVar = static_cast<Answer> (AscInitialDataSaveMenu());
 			if (initialDataVar == Answer::Yes)
 				InitialFileOutput(array, count);
@@ -98,7 +99,7 @@ int main()
 		}
 		
 		std::cin.clear();
-		std::cin.ignore(30000,'\n');
+		std::cin.ignore(30000, '\n');
 		InputType outputVar = static_cast<InputType> (AscOutputType());
 		
 
