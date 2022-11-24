@@ -24,3 +24,13 @@ int Book::GetNUmberOfPages()
 {
 	return numberOfPages;
 }
+
+bool Book::operator==(const Book& other)
+{
+	return author == other.author && title == other.title && publisher == other.publisher && year == other.year && numberOfPages == other.numberOfPages;
+}
+
+bool Book::operator!=(const Book& other)
+{
+	return !(*this == other);
+}
