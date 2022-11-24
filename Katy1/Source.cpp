@@ -95,9 +95,10 @@ int main()
 			endList = GetListOfBooksPublisherAfterGivenYear(array, count, wishYear, endSize);
 			break;
 		}
-
+		std::cin.clear();
+		std::cin.ignore();
 		InputType outputVar = static_cast<InputType> (AscOutputType());
-
+		
 		switch (outputVar)
 		{
 		case InputType::Console:

@@ -8,7 +8,7 @@ int CheckIntValue()
 	while (true)
 	{
 		std::cout << "ENTER : ";
-		std::cin >> valueInput;
+		std::getline(std::cin,valueInput);
 		try
 		{
 			value = stoi(valueInput);
@@ -36,7 +36,7 @@ int CheckMenuItem(int numberOfPoints)
 	while (true)
 	{
 		std::cout << "ENTER : ";
-		std::cin >> valueInput;
+		std::getline(std::cin, valueInput);
 		try
 		{
 			value = stoi(valueInput);
@@ -81,7 +81,7 @@ double CheckDoubleValue()
 	while (true)
 	{
 		std::cout << "ENTER : ";
-		std::cin >> valueInput;
+		std::getline(std::cin, valueInput);
 		try
 		{
 			value = stod(valueInput);
