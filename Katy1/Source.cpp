@@ -54,6 +54,7 @@ int main()
 
 		if (inputVar == InputType::Console)
 		{
+			std::cin.sync();
 			Answer initialDataVar = static_cast<Answer> (AscInitialDataSaveMenu());
 			if (initialDataVar == Answer::Yes)
 				InitialFileOutput(array, count);
@@ -95,10 +96,12 @@ int main()
 			endList = GetListOfBooksPublisherAfterGivenYear(array, count, wishYear, endSize);
 			break;
 		}
+		
 		std::cin.clear();
-		std::cin.ignore();
+		std::cin.ignore(30000,'\n');
 		InputType outputVar = static_cast<InputType> (AscOutputType());
 		
+
 		switch (outputVar)
 		{
 		case InputType::Console:

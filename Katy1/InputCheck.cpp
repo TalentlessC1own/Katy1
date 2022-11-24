@@ -31,11 +31,15 @@ int CheckIntValue()
 
 int CheckMenuItem(int numberOfPoints)
 {
+	
+	
 	std::string valueInput;
 	int value;
+	
 	while (true)
 	{
 		std::cout << "ENTER : ";
+		
 		std::getline(std::cin, valueInput);
 		try
 		{
