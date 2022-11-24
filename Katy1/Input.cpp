@@ -29,6 +29,8 @@ Book* ConsoleInput(int count)
         std::cout << "Correct data entered(#" << i + 1 << ")!" << std::endl;
 
 		array[i] = Book(valuerAuthor, valueTitle, valuePublisher, valueYear, valueNumberOfPages);
+		std::cin.clear();
+		std::cin.ignore();
     }
 	return array;
 }
