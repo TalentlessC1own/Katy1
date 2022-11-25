@@ -75,7 +75,7 @@ int main()
 		{
 		case ListType::ByAuthor:
 			std::cout << "Введите автора:";
-			std::cin >> wishAuthor;
+			std::getline(std::cin, wishAuthor);
 			listType = "Книги " + wishAuthor + " \n";;
 			endList = GetListofBooksByGivenAuthor(array, count, wishAuthor, endSize);
 			break;
@@ -98,8 +98,7 @@ int main()
 			break;
 		}
 		
-		std::cin.clear();
-		std::cin.ignore(30000, '\n');
+		
 		InputType outputVar = static_cast<InputType> (AscOutputType());
 		
 
