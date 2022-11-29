@@ -28,6 +28,7 @@ enum class Answer
 
 int main()
 {
+	const int yes = 1;
 	setlocale(LC_ALL, "Russian");
 	std::cout << "K 415 kr 1" << std::endl;
 	while (true)
@@ -70,48 +71,58 @@ int main()
 		int wishYear = 0;
 		std::string listType;
 
-		ListType var = static_cast<ListType>(AscUserMenu());
-		switch (var)
+		while (true)
 		{
-		case ListType::ByAuthor:
-			std::cout << "Введите автора:";
-			std::getline(std::cin, wishAuthor);
-			listType = "Книги " + wishAuthor + " \n";;
-			endList = GetListofBooksByGivenAuthor(array, count, wishAuthor, endSize);
-			break;
+			ListType var = static_cast<ListType>(AscUserMenu());
+			switch (var)
+			{
+			case ListType::ByAuthor:
+				std::cout << "Введите автора:";
+				std::getline(std::cin, wishAuthor);
+				listType = "Книги " + wishAuthor + " \n";;
+				endList = GetListofBooksByGivenAuthor(array, count, wishAuthor, endSize);
+				break;
 
-		case ListType::ByPublisher:
-			std::cout << "ВВедите издание :";
-			std::cin >> wishPublisher;
-			
+			case ListType::ByPublisher:
+				std::cout << "ВВедите издание :";
+				std::getline(std::cin, wishPublisher);
 
-			listType = "Книги изданные  " + wishPublisher + " \n";;
 
-			endList = GetListOfBooksPublisherByGivenPublisher(array, count, wishPublisher, endSize);
-			break;
+				listType = "Книги изданные  " + wishPublisher + " \n";;
 
-		case ListType::ByYear:
-			std::cout << "Введите год:";
-			wishYear = CheckIntValue();
-			listType = "Книги изданные после " + std::to_string(wishYear) + " \n";
-			endList = GetListOfBooksPublisherAfterGivenYear(array, count, wishYear, endSize);
-			break;
+				endList = GetListOfBooksPublisherByGivenPublisher(array, count, wishPublisher, endSize);
+				break;
+
+			case ListType::ByYear:
+				std::cout << "Введите год.\n";
+				wishYear = CheckIntValue();
+				listType = "Книги изданные после " + std::to_string(wishYear) + " \n";
+				endList = GetListOfBooksPublisherAfterGivenYear(array, count, wishYear, endSize);
+				break;
+			}
+
+
+			InputType outputVar = static_cast<InputType> (AscOutputType());
+
+
+			switch (outputVar)
+			{
+			case InputType::Console:
+				ConsoleOutput(array, listType, endSize);
+				break;
+			case InputType::File:
+				FileOutput(array, listType, endSize);
+				break;
+			}
+			int varList = 0;
+			std::cout << "Хотите получить другие списки?\n1 - да\n2 - нет  " << std::endl;
+			varList = CheckMenuItem(2);
+			if (varList != yes)
+			{
+				break;
+			}
+
 		}
-		
-		
-		InputType outputVar = static_cast<InputType> (AscOutputType());
-		
-
-		switch (outputVar)
-		{
-		case InputType::Console:
-			ConsoleOutput(array,listType, endSize);
-			break;
-		case InputType::File:
-			FileOutput(array,listType, endSize);
-			break;
-		}
-
 		delete[] array;
 		delete[] endList;
 		std::cout << "Завершить программу 1 - да 2 - нет " << std::endl;
