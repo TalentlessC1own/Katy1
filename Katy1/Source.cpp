@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "GetList.h"
+#include<array>
 
 
 enum class InputType
@@ -50,6 +51,7 @@ int main()
 
 		case InputType::File:
 			array = FileInput();
+			count = sizeof(*array) / sizeof(array[0]);
 			std::cin.clear();
 			std::cin.ignore(30000, '\n');
 			break;
